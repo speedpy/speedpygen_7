@@ -29,4 +29,4 @@ if [[ $SPEEDPYCOM_REF != "master" ]]; then
 fi
 
 echo "Initializing the project starting..."
-source $target_path/init.sh
+source init.sh

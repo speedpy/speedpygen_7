@@ -27,6 +27,6 @@ cd $target_path
 if [[ $SPEEDPYCOM_REF != "master" ]]; then
 	git fetch origin "${SPEEDPYCOM_REF:-stable}" && git checkout "${SPEEDPYCOM_REF:-stable}"
 fi
-
+rm -rf .git
 echo "Initializing the project starting..."
 source init.sh

@@ -38,5 +38,5 @@ docker compose run --rm web python manage.py migrate
 docker compose run --rm web python manage.py makesuperuser
 
 docker compose up -d
-open_url https://127.0.0.1:9000
+open_url http://127.0.0.1:9000
 echo "Open your browser at http://127.0.0.1:9000"

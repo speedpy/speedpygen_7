@@ -29,4 +29,4 @@ if [[ $SPEEDPYCOM_REF != "master" ]]; then
 fi
 rm -rf .git
 echo "Initializing the project starting..."
-source init.sh
+bash init.sh

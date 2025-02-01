@@ -1,34 +1,41 @@
-# SpeedPy Simple Project
+# SpeedPy Standard Project
 
-This is a simple project to start your Django based webapps.
+This is a standard project to start your Django based webapps.
+
+## Key features
+
+- Following 12 Factor app uses environment variables for configuration
+- Custom User model in a separate app `usermodel`
+- Single Django app project layout, except `usermodel`
+- Celery
+- Tailwind
+
+## Requirements
+
+You must have Docker installed on your machine
 
 ## How to use
 
+### If you have already cloned the repo
 This project uses Makefile.
 
 To initialize environment please type in terminal in the root of the project:
 
 ```bash
-make
+bash init.sh
 ```
 
-This will create virtual environment, install dependencies and create `.env` file.
+### One line download and start
 
-#### Ubuntu installation notes
-On a fresh Ubuntu (for example in WSL) you need to install python, dependencies and build tools:
-
-```bash
-sudo apt-get install -y python3 python3-venv python3-dev python3-wheel build-essential autoconf
-```
-
-NVM:
+Run this command if you haven't cloned the code:
 
 ```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-nvm install node
+wget -qO- https://speedpy.com/install | bash
 ```
 
 ### Tailwind
+
+(This section needs rewrite when we update tailwind)
 
 There is Tailwind configuration file (`tailwind.config.js`) in the root of the project.
 
@@ -42,6 +49,8 @@ In addition to Tailwind, this project uses [Flowbite](https://flowbite.com), a s
 See [Tailwind Installation](https://tailwindcss.com/docs/installation).
 
 #### Generating Tailwind Directories
+
+(This section needs rewrite when we update tailwind)
 
 In order for tailwind know where all Django apps' templates and static files are located you need to run:
 
@@ -58,6 +67,8 @@ This will populate the `tailwind_directories.json` file which is used in the `ta
 
 #### Compiling Tailwind
 
+(This section needs rewrite when we update tailwind)
+
 In order to turn Tailwind CSS into regular CSS, you need to run the following command:
 
 To compile CSS once, run:(running this gives error: npm ERR! missing script: build:css)
@@ -73,6 +84,9 @@ make tw-build
 ```
 
 #### Watching Tailwind (for changes)
+
+(This section needs rewrite when we update tailwind)
+
 To avoid having to run the above commands everytime you make changes to your templates using Tailwind, you can run the below command to watch for changes and recompile CSS automatically:
 (this also gives the same error as above, the correct command should be: `npm run tailwind:watch`)
 ```bash
@@ -87,6 +101,8 @@ make tw
 
 
 ### Running the project
+
+(This section needs rewrite when we update tailwind)
 
 To run the project, type in terminal in the root of the project:
 
@@ -104,6 +120,8 @@ make run
 
 
 ## Project Structure
+
+(This section needs rewrite when we update tailwind)
 
 The project structure is based on the idea of a Single App Django Project
 Layout. [Watch the video](https://youtu.be/R7y1MkzOk7o?si=bzxWTvF7Wtyl2yW7) for the reasoning behind it and detailed explanation.

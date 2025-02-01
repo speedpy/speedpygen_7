@@ -38,5 +38,7 @@ docker compose run --rm web python manage.py migrate
 docker compose run --rm web python manage.py makesuperuser
 
 docker compose up -d
+sleep 1
+until curl -s -f -o /dev/null "http://127.0.0.1"; do echo "Waiting..."; sleep 5; done; echo "Site is up!"
 open_url http://127.0.0.1:9000
 echo "Open your browser at http://127.0.0.1:9000"

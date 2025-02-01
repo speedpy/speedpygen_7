@@ -12,8 +12,5 @@ docker compose run --rm web python manage.py migrate
 docker compose run --rm web python manage.py makesuperuser
 
 docker compose up -d
-echo "Run 'make dev' to start the server"
-echo "Run 'make tw' to start tailwind watch"
-echo "Run 'make mm' to make migrations"
-echo "Run 'make m' to migrate"
+open https://127.0.0.1:9000
 echo "Open your browser at http://127.0.0.1:9000"

@@ -2,7 +2,7 @@
 
 
 open_url() {
-    local url=$1
+    url=$1;
 
     case "$(uname -s)" in
         Linux*)

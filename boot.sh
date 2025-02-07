@@ -10,7 +10,24 @@ ____/ / __  /_/ //  __//  __// /_/ /  _  ____/ _  /_/ /___ / /__  / /_/ /_  / / 
 
 echo -e "$ascii_art"
 echo "=> SpeedPy.com Django-based Boilerplate requires Docker installed."
-echo -e "\nBegin installation (or abort with ctrl+c)..."
+
+# Check Git
+if command -v git &> /dev/null; then
+    echo "Git is installed ($(git --version))"
+else
+    echo "Error: Git is not installed"
+    exit 1
+fi
+
+# Check Docker
+if command -v docker &> /dev/null; then
+    echo "Docker is installed ($(docker --version))"
+else
+    echo "Error: Docker is not installed"
+    exit 1
+fi
+
+echo "All required tools are installed"
 
 echo "Selecting the clone target path:"
 target_path="project"

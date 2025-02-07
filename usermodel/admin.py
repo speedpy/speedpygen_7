@@ -12,7 +12,8 @@ class UserAdmin(DefaultUserAdmin):
             None,
             {
                 'fields': (
-                    'email', 'password'
+                    'email', 'password',
+                    'first_name', 'last_name',
                 )
             }
         ),

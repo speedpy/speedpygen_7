@@ -25,7 +25,7 @@ echo "Cloning install scripts:"
 git clone https://gitlab.com/speedpycom/speedpycom-standard.git $target_path >/dev/null
 cd $target_path
 if [[ $SPEEDPYCOM_REF != "master" ]]; then
-	git fetch origin "${SPEEDPYCOM_REF:-stable}" && git checkout "${SPEEDPYCOM_REF:-stable}"
+	git fetch origin "${SPEEDPYCOM_REF:-master}" && git checkout "${SPEEDPYCOM_REF:-master}"
 fi
 rm -rf .git
 echo "Initializing the project starting..."

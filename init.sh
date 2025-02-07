@@ -24,7 +24,7 @@ open_url() {
             ;;
     esac
 }
-
+test -t 1 && USE_TTY="-T"
 git init -b master
 git add .
 git commit -m "Initial commit"
@@ -32,10 +32,10 @@ cp .docker.env .env
 docker compose build
 docker compose up -d db redis
 sleep 2
-docker compose run --rm web python manage.py generate_tailwind_directories
-docker compose run --rm web npm i && npm run tailwind:build
-docker compose run --rm web python manage.py migrate
-docker compose run --rm web python manage.py makesuperuser
+docker compose run --rm ${USE_TTY} web python manage.py generate_tailwind_directories
+docker compose run --rm ${USE_TTY} web npm i && npm run tailwind:build
+docker compose run --rm ${USE_TTY} web python manage.py migrate
+docker compose run --rm ${USE_TTY} web python manage.py makesuperuser
 
 docker compose up -d
 sleep 1

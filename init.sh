@@ -29,7 +29,7 @@ git init -b master
 git add .
 git commit -m "Initial commit"
 cp .docker.env .env
-docker compose build
+docker compose build -q
 docker compose up -d db redis
 sleep 2
 docker compose run --rm ${USE_TTY} web python manage.py generate_tailwind_directories

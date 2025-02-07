@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
 from django.utils.crypto import get_random_string
-
+from allauth.account.models import EmailAddress
 User = get_user_model()
 
 
@@ -19,8 +19,13 @@ class Command(BaseCommand):
                 self.stdout.write("A superuser has been created")
                 self.stdout.write(f"Email: {email}")
                 self.stdout.write(f"Password: {new_password}")
-
                 self.stdout.write("=======================")
+                EmailAddress.objects.create(
+                    user=u,
+                    email=email,
+                    primary=True,
+                    verified=True
+                )
             else:
                 self.stdout.write("A superuser exists in the database. Skipping.")
         except Exception as e:

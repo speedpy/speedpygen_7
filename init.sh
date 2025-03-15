@@ -33,7 +33,7 @@ docker compose build -q
 docker compose up -d db redis
 sleep 2
 docker compose run --rm ${USE_TTY} web python manage.py generate_tailwind_directories
-docker compose run --rm ${USE_TTY} web npm i && npm run tailwind:build
+docker compose run --rm ${USE_TTY} web bash -c "npm i && npm run tailwind:build"
 docker compose run --rm ${USE_TTY} web python manage.py makemigrations
 docker compose run --rm ${USE_TTY} web python manage.py migrate
 docker compose run --rm ${USE_TTY} web python manage.py makesuperuser

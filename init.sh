@@ -26,8 +26,7 @@ open_url() {
 }
 test -t 1 && USE_TTY="-T"
 git init -b master
-git add .
-git commit -q -m "Initial commit"
+
 cp .docker.env .env
 docker compose build -q
 docker compose up -d db redis

@@ -37,7 +37,8 @@ docker compose run --rm ${USE_TTY} web bash -c "npm i && npm run tailwind:build"
 docker compose run --rm ${USE_TTY} web python manage.py makemigrations
 docker compose run --rm ${USE_TTY} web python manage.py migrate
 docker compose run --rm ${USE_TTY} web python manage.py makesuperuser
-
+git add .
+git commit -q -m "Initial commit"
 docker compose up -d
 sleep 1
 

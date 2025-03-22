@@ -31,7 +31,7 @@ echo "USE_TTY=${USE_TTY}"
 git init -b master
 
 cp .docker.env .env
-echo "* docker compose down -v --remove-orphans"
+echo " * docker compose down -v --remove-orphans"
 docker compose down -v --remove-orphans
 echo " * Building the Docker image for the project (might take a while)"
 docker compose build -q

@@ -179,6 +179,7 @@ WHITENOISE_USE_FINDERS = True
 WHITENOISE_AUTOREFRESH = DEBUG
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    ("versolyui", BASE_DIR / "node_modules" / "versoly-ui" / "dist"),
     ("flowbite", BASE_DIR / "node_modules" / "flowbite" / "dist"),
 ]
 CRISPY_TEMPLATE_PACK = "tailwind"

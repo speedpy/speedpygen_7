@@ -2,7 +2,7 @@
 
 
 open_url() {
-    url=$1;
+    url=$1
 
     case "$(uname -s)" in
         Linux*)
@@ -24,21 +24,32 @@ open_url() {
             ;;
     esac
 }
-test -t 1 && USE_TTY="-T"
+. ./pre_check.sh
+USE_TTY=$(test -t 1 && echo "-T" || echo "")
 git init -b master
 
 cp .docker.env .env
+echo "* docker compose down -v --remove-orphans"
+docker compose down -v --remove-orphans
+echo " * Building the Docker image for the project (might take a while)"
 docker compose build -q
+echo " * Starting DB and redis"
 docker compose up -d db redis
 sleep 2
+echo " * Generating directories for tailwind config"
 docker compose run --rm ${USE_TTY} web python manage.py generate_tailwind_directories
+echo " * Installing tailwind and dependencies"
 docker compose run --rm ${USE_TTY} web bash -c "npm i && npm run tailwind:build"
+echo " * Initializing the project"
 docker compose run --rm ${USE_TTY} web python manage.py makemigrations
 docker compose run --rm ${USE_TTY} web python manage.py migrate
 docker compose run --rm ${USE_TTY} web python manage.py makesuperuser > local_password.txt
 cat local_password.txt
+echo " * Created local superuser credentials are stored in local_password.txt file for your convenience"
 git add .
 git commit -q -m "Initial commit"
+
+echo " * Starting the project..."
 docker compose up -d
 sleep 1
 

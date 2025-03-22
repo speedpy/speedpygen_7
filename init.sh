@@ -26,6 +26,7 @@ open_url() {
 }
 . ./pre_check.sh
 USE_TTY=$(test -t 1 && echo "-T" || echo "")
+echo "USE_TTY=${USE_TTY}"
 git init -b master
 
 cp .docker.env .env

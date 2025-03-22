@@ -25,7 +25,8 @@ open_url() {
     esac
 }
 . ./pre_check.sh
-USE_TTY=$(test -t 1 && echo "-T" || echo "")
+USE_TTY=""
+test -t 1 && USE_TTY="-T"
 echo "USE_TTY=${USE_TTY}"
 git init -b master
 

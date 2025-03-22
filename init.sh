@@ -35,7 +35,8 @@ docker compose run --rm ${USE_TTY} web python manage.py generate_tailwind_direct
 docker compose run --rm ${USE_TTY} web bash -c "npm i && npm run tailwind:build"
 docker compose run --rm ${USE_TTY} web python manage.py makemigrations
 docker compose run --rm ${USE_TTY} web python manage.py migrate
-docker compose run --rm ${USE_TTY} web python manage.py makesuperuser
+docker compose run --rm ${USE_TTY} web python manage.py makesuperuser > local_password.txt
+cat local_password.txt
 git add .
 git commit -q -m "Initial commit"
 docker compose up -d

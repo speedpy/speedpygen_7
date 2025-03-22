@@ -12,7 +12,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
 
 app = Celery("project")
 app.autodiscover_tasks()
-app.conf.broker_url = env("CELERY_BROKER_URL", default=None)
+app.conf.broker_url = env("REDIS_URL", default=None)
 app.conf.accept_content = ["application/json"]
 app.conf.task_serializer = "json"
 app.conf.result_serializer = "json"

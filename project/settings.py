@@ -180,6 +180,8 @@ WHITENOISE_AUTOREFRESH = DEBUG
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     ("versolyui", BASE_DIR / "node_modules" / "versoly-ui" / "dist"),
+    ("floating-core", BASE_DIR / "node_modules" / "@floating-ui" / "core" / "dist"),
+    ("floating-ui", BASE_DIR / "node_modules" / "@floating-ui" / "dom" / "dist"),
 ]
 CRISPY_TEMPLATE_PACK = "tailwind"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"

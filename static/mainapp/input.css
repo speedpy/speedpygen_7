@@ -460,7 +460,7 @@
     @apply focus:ring-white;
   }
   [data-toggle="dropdown"] {
-    @apply flex ml-4 items-center gap-x-1 after:flex-shrink-0 after:w-4 after:h-4 after:[mask:var(--svg-caret-down)_no-repeat_50%_50%] after:[mask-size:cover] after:content-[''] after:bg-current;
+    @apply flex ml-4 items-center gap-x-1;
   }
   html :where(a.text-dark) {
     @apply hover:text-gray-600;

@@ -9,10 +9,10 @@ User = get_user_model()
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         email = 'admin@example.com'
-        new_password = get_random_string(10)
+        new_password = os.environ.get('DEFAULT_ADMIN_PASSWORD')
+        if not new_password:
+            new_password = get_random_string(10)
         try:
-            u = None
-
             if not User.objects.filter(is_superuser=True).exists():
                 self.stdout.write("No superusers found, creating one")
                 u = User.objects.create_superuser(email=email, password=new_password, first_name="Admin", last_name="User")

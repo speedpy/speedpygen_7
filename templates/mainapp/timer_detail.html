@@ -1,0 +1,49 @@
+{% extends "mainapp/layouts/sidebar_layout.html" %}
+
+    {% block head_title %}Timer Details{% endblock %}
+
+    {% block main_content %}
+    <div class="container">
+        <h2 class="h2">Timer Details</h2>
+
+        <div class="card">
+            <div class="card-body">
+                
+                <div class="row mb-2">
+                    <div class="col-4"><strong>Name:</strong></div>
+                    <div class="col-8">{{ timer.name }}</div>
+                </div> 
+                <div class="row mb-2">
+                    <div class="col-4"><strong>Duration:</strong></div>
+                    <div class="col-8">{{ timer.duration }}</div>
+                </div> 
+                <div class="row mb-2">
+                    <div class="col-4"><strong>Start Time:</strong></div>
+                    <div class="col-8">{{ timer.start_time }}</div>
+                </div> 
+                <div class="row mb-2">
+                    <div class="col-4"><strong>End Time:</strong></div>
+                    <div class="col-8">{{ timer.end_time }}</div>
+                </div> 
+                <div class="row mb-2">
+                    <div class="col-4"><strong>Is Active:</strong></div>
+                    <div class="col-8">{{ timer.is_active }}</div>
+                </div> 
+                <div class="row mb-2">
+                    <div class="col-4"><strong>Owner:</strong></div>
+                    <div class="col-8">{{ timer.owner }}</div>
+                </div> 
+                <div class="row mb-2">
+                    <div class="col-4"><strong>Access Code:</strong></div>
+                    <div class="col-8">{{ timer.access_code }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <a href="{% url 'timer_update' timer.id %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'timer_delete' timer.id %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'timer_list' %}" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+    {% endblock %}

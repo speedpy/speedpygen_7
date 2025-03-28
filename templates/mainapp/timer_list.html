@@ -1,0 +1,36 @@
+{% extends "mainapp/layouts/sidebar_layout.html" %}
+
+    {% block head_title %}Timer List{% endblock %}
+
+    {% block main_content %}
+    <div class="container">
+        <h2 class="h2">Timer List</h2>
+
+        <a href="{% url 'timer_create' %}" class="btn btn-primary mb-3">Create New Timer</a>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th> <th>Duration</th> <th>Start Time</th> <th>End Time</th> <th>Is Active</th> <th>Owner</th> <th>Access Code</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for timer in timer_list %}
+                <tr>
+                    <td>{{ timer.name }}</td> <td>{{ timer.duration }}</td> <td>{{ timer.start_time }}</td> <td>{{ timer.end_time }}</td> <td>{{ timer.is_active }}</td> <td>{{ timer.owner }}</td> <td>{{ timer.access_code }}</td>
+                    <td>
+                        <a href="{% url 'timer_detail' timer.id %}" class="btn btn-info btn-sm">View</a>
+                        <a href="{% url 'timer_update' timer.id %}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{% url 'timer_delete' timer.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6">No timers found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}

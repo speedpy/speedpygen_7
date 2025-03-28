@@ -1,0 +1,66 @@
+models:
+  - name: Timer
+    fields:
+      - name: name
+        type: CharField
+        required: true
+      - name: duration
+        type: IntegerField
+        required: true
+      - name: start_time
+        type: DateTimeField
+        required: false
+      - name: end_time
+        type: DateTimeField
+        required: false
+      - name: is_active
+        type: BooleanField
+        default: false
+      - name: owner
+        type: ForeignKey
+        required: true
+        to: User
+      - name: access_code
+        type: CharField
+        required: true
+        is_unique: true
+
+  - name: TimerPreset
+    fields:
+      - name: name
+        type: CharField
+        required: true
+      - name: duration
+        type: IntegerField
+        required: true
+      - name: owner
+        type: ForeignKey
+        required: true
+        to: User
+
+  - name: TimerEvent
+    fields:
+      - name: timer
+        type: ForeignKey
+        required: true
+        to: Timer
+      - name: event_type
+        type: CharField
+        required: true
+      - name: timestamp
+        type: DateTimeField
+        required: true
+
+  - name: TimerAccess
+    fields:
+      - name: timer
+        type: ForeignKey
+        required: true
+        to: Timer
+      - name: user
+        type: ForeignKey
+        required: true
+        to: User
+      - name: access_type
+        type: CharField
+        required: true

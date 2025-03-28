@@ -1,0 +1,33 @@
+{% extends "mainapp/layouts/sidebar_layout.html" %}
+
+    {% block head_title %}TimerPreset Details{% endblock %}
+
+    {% block main_content %}
+    <div class="container">
+        <h2 class="h2">TimerPreset Details</h2>
+
+        <div class="card">
+            <div class="card-body">
+                
+                <div class="row mb-2">
+                    <div class="col-4"><strong>Name:</strong></div>
+                    <div class="col-8">{{ timerpreset.name }}</div>
+                </div> 
+                <div class="row mb-2">
+                    <div class="col-4"><strong>Duration:</strong></div>
+                    <div class="col-8">{{ timerpreset.duration }}</div>
+                </div> 
+                <div class="row mb-2">
+                    <div class="col-4"><strong>Owner:</strong></div>
+                    <div class="col-8">{{ timerpreset.owner }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <a href="{% url 'timerpreset_update' timerpreset.id %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'timerpreset_delete' timerpreset.id %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'timerpreset_list' %}" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,36 @@
+{% extends "mainapp/layouts/sidebar_layout.html" %}
+
+    {% block head_title %}TimerAccess List{% endblock %}
+
+    {% block main_content %}
+    <div class="container">
+        <h2 class="h2">TimerAccess List</h2>
+
+        <a href="{% url 'timeraccess_create' %}" class="btn btn-primary mb-3">Create New TimerAccess</a>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Timer</th> <th>User</th> <th>Access Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for timeraccess in timeraccess_list %}
+                <tr>
+                    <td>{{ timeraccess.timer }}</td> <td>{{ timeraccess.user }}</td> <td>{{ timeraccess.access_type }}</td>
+                    <td>
+                        <a href="{% url 'timeraccess_detail' timeraccess.id %}" class="btn btn-info btn-sm">View</a>
+                        <a href="{% url 'timeraccess_update' timeraccess.id %}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{% url 'timeraccess_delete' timeraccess.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="2">No timeraccesss found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}
